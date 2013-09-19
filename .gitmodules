@@ -1,6 +1,3 @@
-[submodule "Dependencies/Bootstrap"]
-	path = Dependencies/Bootstrap
-	url = https://github.com/twbs/bootstrap.git
 [submodule "Dependencies/OpenLayers3"]
 	path = Dependencies/OpenLayers3
 	url = https://github.com/openlayers/ol3.git
