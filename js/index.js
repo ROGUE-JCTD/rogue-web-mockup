@@ -154,22 +154,46 @@ var map = new ol.Map({
     new ol.layer.Tile({
       source: new ol.source.OSM()
     }),
-    vector//,
-    //no idea if this will work at all
-//    new ol.layer.Vector({
-//        source: {
-//            url: "http://geoserver.rogue.lmnsolutions.com/geoserver/wfs?service=wfs&version=1.0.0&request=DescribeFeatureType&outputformat=text/xml;%20subtype=gml/3.2&typeName=geonode:centros_medicos",
-//            
-//        }
-//    })
-  ],
-  controls: ol.control.defaults({
-      attribution: false
-    }),
-  renderer: ol.RendererHint.CANVAS,
-  target: 'map',
-  view: new ol.View2D({
-    center: [0, 0],
-    zoom: 2
-  })
+    new ol.layer.Tile({
+        source: new ol.source.TileDebug({
+          projection: 'EPSG:3857',
+          tileGrid: new ol.tilegrid.XYZ({
+            maxZoom: 22
+          })
+        })
+      }),
+    vector,
+    new ol.layer.Tile({
+       source: new ol.source.TileWMS({
+          url: 'http://geoserver.rogue.lmnsolutions.com/geoserver/wms',
+          params: {'LAYERS': 'geonode:centros_medicos'}
+       })
+    })
+    ],
+    controls: ol.control.defaults().extend([
+        new ol.control.FullScreen()
+    ]),
+    interactions: ol.interaction.defaults().extend([
+        new ol.interaction.DragRotate()
+    ]),
+    renderer: ol.RendererHint.CANVAS,
+    target: 'map',
+    view: new ol.View2D({
+        center: [0, 0],
+        zoom: 2
+    })
+});
+
+map.on('click', function(evt) {
+    console.log("map.onclick", evt.getPixel());
+    map.getFeatureInfo({
+        pixel: evt.getPixel(),
+        success: function(featureInfo) {
+            console.log("feature info ", featureInfo);
+            //document.getElementById('info').innerHTML = featureInfoByLayer.join('');
+        },
+        error: function() {
+            console.log("request failed");
+        }
+    });
 });

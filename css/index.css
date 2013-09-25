@@ -3,8 +3,22 @@ html, body {
 	margin  : 0;
 	padding : 0;
 	height  : 100%;
-	width   : 100%;
+	/* width   : 100%; */
 }
 .mapdiv {
 	height: 90%;
+}
+
+/* we have to explicitly set the full-screen width, otherwise it will only take up the original width of the window its in */
+.map:-moz-full-screen {
+	height: 100%;
+	width: 100%;
+}
+.map:-webkit-full-screen {
+	height: 100%;
+	width: 100%;
+}
+.map:full-screen {
+	height: 100%;
+	width: 100%;
 }
