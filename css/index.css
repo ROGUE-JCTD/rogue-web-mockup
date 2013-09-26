@@ -5,9 +5,34 @@ html, body {
 	height  : 100%;
 	/* width   : 100%; */
 }
-.mapdiv {
-	height: 90%;
+#map {
+	height: 100%;
+	width: 100%;
 }
+
+#pulldown {
+	position: absolute;
+	left: 0;
+	width: 320px;
+	z-index: 1000;
+	top: 0px;
+}
+
+#pulldown .panel {
+	margin: 0;
+	border: 0;
+	font-weight: normal;
+	overflow: visible;
+}
+
+#pulldown-content .accordion-toggle {
+	background-color: #000;
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px solid #999;
+}
+
 
 /* we have to explicitly set the full-screen width, otherwise it will only take up the original width of the window its in */
 .map:-moz-full-screen {
