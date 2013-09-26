@@ -171,7 +171,8 @@ var map = new ol.Map({
     })
     ],
     controls: ol.control.defaults().extend([
-        new ol.control.FullScreen()
+        new ol.control.FullScreen(), 
+        new ol.control.ZoomSlider()
     ]),
     interactions: ol.interaction.defaults().extend([
         new ol.interaction.DragRotate()
