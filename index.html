@@ -13,17 +13,53 @@
 	<!-- <script type="text/javascript" src="http://ol3js.org/en/master/build/ol.js"></script>-->
 	<div id="map" class="map">
 		<div id="pulldown">
-			<div id="pulldown-content" class="panel-group">
+			<div id="pulldown-content" class="panel-group in">
 				<div class="panel">
-					<a class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#pulldown-content" href="#panel1">
+					<a class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#pulldown-content" href="#panel1">
 						<span>Tools</span>
 					</a>
-					<div id="panel1" class="panel-collapse collapse">
-						<div class="panel-body">Stuff</div>
+					<div id="panel1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+							<button data-toggle="tooltip" title="Edit a feature" disabled="disabled" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-edit"></i>
+							</button>
+							<button data-toggle="tooltip" title="Save a feature" disabled="disabled" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-ok-sign"></i>
+							</button>
+							<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-minus-sign"></i>
+							</button>	
+							<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-move rotate-45deg"></i>
+							</button>		
+							<br>
+							<hr>
+							<button data-toggle="tooltip" title="Save Map" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-floppy-disk"></i>
+							</button>
+							<button data-toggle="tooltip" title="Zoom to max extent" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-fullscreen"></i>
+							</button>
+							<button data-toggle="button tooltip" title="Zoom by dragging a box" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-resize-full"></i>
+							</button>
+							<button data-toggle="tooltip" title="Zoom to previous extent" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-arrow-left"></i>
+							</button>
+							<button data-toggle="tooltip" title="Zoom to next extent" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-arrow-right"></i>
+							</button>	
+							<button data-toggle="button tooltip" title="Toggle Automatic Layer Refresh" class="btn btn-sm btn-default">
+								<i class="glyphicon glyphicon-refresh"></i>
+							</button>						
+						</div>
 					</div>
 				</div>
 				<div class="panel">
-					<a class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#pulldown-content" href="#panel2">
+					<a class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#pulldown-content" href="#panel2">
 						<span>Map Layers</span>
 					</a>
 					<div id="panel2" class="panel-collapse collapse">
@@ -31,7 +67,7 @@
 					</div>
 				</div>
 				<div class="panel">
-					<a class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#pulldown-content" href="#panel3">
+					<a class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#pulldown-content" href="#panel3">
 						<span>Base Map</span>
 					</a>
 					<div id="panel3" class="panel-collapse collapse">
@@ -39,6 +75,7 @@
 					</div>
 				</div>
 			</div>
+			<button type="button" data-toggle="collapse" data-target="#pulldown-content" class="toggle btn btn-default">Toggle Menu</button>
 		</div>
 	</div>
 	<script type="text/javascript" src="js/ol-simple.js"></script>

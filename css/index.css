@@ -25,7 +25,7 @@ html, body {
 	overflow: visible;
 }
 
-#pulldown-content .accordion-toggle {
+#pulldown-content .panel-heading {
 	background-color: #000;
 	color: #fff;
 	display: block;
@@ -33,6 +33,12 @@ html, body {
 	border-bottom: 1px solid #999;
 }
 
+.rotate-45deg    {  
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+}
 
 /* we have to explicitly set the full-screen width, otherwise it will only take up the original width of the window its in */
 .map:-moz-full-screen {
