@@ -33,6 +33,19 @@ html, body {
 	border-bottom: 1px solid #999;
 }
 
+#BaseLayerList {
+	margin-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#BaseLayerRow {
+	height: 206px;
+	overflow: auto;
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .rotate-45deg    {  
     -webkit-transform:rotate(45deg);
     -moz-transform:rotate(45deg);
