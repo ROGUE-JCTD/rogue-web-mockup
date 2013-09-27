@@ -108,7 +108,7 @@ var saveLayer = function() {
 //generates the HTML for a layer panel
 var makeLayerPanel = function(layerName) {
     return '<div id="layerPanel" class="panel">' +
-        '<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanels" href="#' + layerName + '_panel">' +
+        '<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanel-group" href="#' + layerName + '_panel">' +
             layerName +
         '</a>' +
         '<span class="layerSpan">' +
@@ -116,7 +116,22 @@ var makeLayerPanel = function(layerName) {
         '</span>' +
      
         '<div id="' + layerName + '_panel" class="panel-collapse collapse">'+
-            'layer info' +
+            'layer info ' +
+            '<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">' +
+                '<i class="glyphicon glyphicon-pencil"></i>' +
+            '</button>' +
+            '<button data-toggle="tooltip" title="Edit a feature" disabled="disabled" class="btn btn-sm btn-default">' +
+                '<i class="glyphicon glyphicon-edit"></i>' +
+            '</button>' +
+            '<button data-toggle="tooltip" title="Save a feature" disabled="disabled" class="btn btn-sm btn-default">' +
+                '<i class="glyphicon glyphicon-ok-sign"></i>' +
+            '</button>' +
+            '<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">' +
+                '<i class="glyphicon glyphicon-minus-sign"></i>' +
+            '</button>' +
+            '<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">' +
+                '<i class="glyphicon glyphicon-move rotate-45deg"></i>' +
+            '</button>' +
         '</div>' +
     '</div>';
 }

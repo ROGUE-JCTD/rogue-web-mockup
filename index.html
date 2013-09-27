@@ -32,23 +32,6 @@
 					</a>
 					<div id="panel1" class="panel-collapse collapse in">
 						<div class="panel-body">
-							<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
-								<i class="glyphicon glyphicon-pencil"></i>
-							</button>
-							<button data-toggle="tooltip" title="Edit a feature" disabled="disabled" class="btn btn-sm btn-default">
-								<i class="glyphicon glyphicon-edit"></i>
-							</button>
-							<button data-toggle="tooltip" title="Save a feature" disabled="disabled" class="btn btn-sm btn-default">
-								<i class="glyphicon glyphicon-ok-sign"></i>
-							</button>
-							<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">
-								<i class="glyphicon glyphicon-minus-sign"></i>
-							</button>
-							<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">
-								<i class="glyphicon glyphicon-move rotate-45deg"></i>
-							</button>
-							<br>
-							<hr>
 							<button data-toggle="tooltip" title="Zoom to max extent" class="btn btn-sm btn-default">
 								<i class="glyphicon glyphicon-fullscreen"></i>
 							</button>
@@ -79,7 +62,7 @@
 						<div class="panel-body">
 							<div id="layerPanel-group" class="panel-group">
 								<div id="layerPanel" class="panel">
-									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanels" href="#centros_medicos_panel">
+									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanel-group" href="#centros_medicos_panel">
 										centros_medicos
 									</a>
 									<span class="layerSpan">
@@ -88,10 +71,26 @@
 									 
 									<div id="centros_medicos_panel" class="panel-collapse collapse">
 										layer info
+										<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</button>
+										<button data-toggle="tooltip" title="Edit a feature" disabled="disabled" class="btn btn-sm btn-default">
+											<i class="glyphicon glyphicon-edit"></i>
+										</button>
+										<button data-toggle="tooltip" title="Save a feature" disabled="disabled" class="btn btn-sm btn-default">
+											<i class="glyphicon glyphicon-ok-sign"></i>
+										</button>
+										<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">
+											<i class="glyphicon glyphicon-minus-sign"></i>
+										</button>	
+										<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">
+											<i class="glyphicon glyphicon-move rotate-45deg"></i>
+										</button>
 									</div>
 								</div>
 							</div>
 							
+							<hr>
 							<a class="btn btn-default" href="#addLayerWindow" data-toggle="modal" style="width:100%">Add Layer</a>
 						</div>
 					</div>
@@ -182,9 +181,11 @@
       				</div>
       				<div class="modal-body">
         				<p>URL of the WMS endpoint</p>
-        				<input id="newLayerURL" type="text">
+        				<input id="newLayerURL" type="text"> 
+        				<hr>
         				<p>Workspace</p>
-        				<input id="newLayerWorkspace" type="text">
+        				<input id="newLayerWorkspace" type="text"> 
+        				<hr>
         				<p>layername</p>
         				<input id="newLayerName" type="text">
       				</div>
