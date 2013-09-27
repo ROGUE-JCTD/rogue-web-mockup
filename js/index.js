@@ -135,3 +135,28 @@ var makeLayerPanel = function(layerName) {
         '</div>' +
     '</div>';
 }
+
+var startRemove = function() {
+    var baseLayers = $("#BaseLayerList").children();
+    console.log("baseLayers", baseLayers);
+    $("#RemoveBaseButton").hide();
+    $("#DeleteBaseButton").show();
+    for(var index = 0; index < baseLayers.length; index++) {
+        baseLayers[index].children[0].type = "checkbox";
+    }
+}
+
+var endRemove = function() {
+    var checkedLayers = $("#BaseLayerList input:checked");    
+    for(var index = 0; index < checkedLayers.length; index++) {
+        console.log("layers", checkedLayers[index].id);
+        $("#"+checkedLayers[index].id).parent().remove();
+    }   
+    $("#RemoveBaseButton").show();
+    $("#DeleteBaseButton").hide();
+    var baseLayers = $("#BaseLayerList").children();
+    console.log("baseLayers", baseLayers);
+    for(var index = 0; index < baseLayers.length; index++) {
+        baseLayers[index].children[0].type = "radio";
+    }
+}
