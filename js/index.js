@@ -41,114 +41,6 @@ var style = new ol.style.Style({rules: [
   })
 ]});
 
-var vector = new ol.layer.Vector({
-  style: style,
-  source: new ol.source.Vector({
-    data: {
-      'type': 'FeatureCollection',
-      'features': [{
-        'type': 'Feature',
-        'properties': {
-          'color': '#BADA55',
-          'where': 'inner'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[-10000000, -10000000], [10000000, 10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'color': '#BADA55',
-          'where': 'inner'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[-10000000, 10000000], [10000000, -10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'color': '#013',
-          'where': 'outer'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[-10000000, -10000000], [-10000000, 10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'color': '#013',
-          'where': 'outer'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[-10000000, 10000000], [10000000, 10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'color': '#013',
-          'where': 'outer'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[10000000, 10000000], [10000000, -10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'color': '#013',
-          'where': 'outer'
-        },
-        'geometry': {
-          'type': 'LineString',
-          'coordinates': [[10000000, -10000000], [-10000000, -10000000]]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'label': 'South'
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [0, -6000000]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'label': 'West'
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [-6000000, 0]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'label': 'North'
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [0, 6000000]
-        }
-      }, {
-        'type': 'Feature',
-        'properties': {
-          'label': 'East'
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [6000000, 0]
-        }
-      }]
-    },
-    parser: new ol.parser.GeoJSON(),
-    projection: ol.proj.get('EPSG:3857')
-  })
-});
-
 var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
@@ -156,13 +48,12 @@ var map = new ol.Map({
     }),
     new ol.layer.Tile({
         source: new ol.source.TileDebug({
-          projection: 'EPSG:3857',
-          tileGrid: new ol.tilegrid.XYZ({
-            maxZoom: 22
-          })
+            projection: 'EPSG:3857',
+            tileGrid: new ol.tilegrid.XYZ({
+                maxZoom: 22
+            })
         })
-      }),
-    vector,
+    }),
     new ol.layer.Tile({
        source: new ol.source.TileWMS({
           url: 'http://geoserver.rogue.lmnsolutions.com/geoserver/wms',
@@ -186,6 +77,7 @@ var map = new ol.Map({
 });
 
 map.on('click', function(evt) {
+    //this won't work until openlayers gets around to supporting wmsGetFeautureInfo
     console.log("map.onclick", evt.getPixel());
     map.getFeatureInfo({
         pixel: evt.getPixel(),
@@ -198,3 +90,33 @@ map.on('click', function(evt) {
         }
     });
 });
+
+var saveLayer = function() {
+    var layerName = $("#newLayerName").val();
+    var formattedLayerName = $("#newLayerWorkspace").val() + ':' + layerName;
+    
+    map.addLayer(new ol.layer.Tile({
+        source: new ol.source.TileWMS({
+            url: $("#newLayerURL").val(),
+            params: {'LAYERS': formattedLayerName}
+         })
+      }));
+    
+    $("#layerPanel-group").append(makeLayerPanel(layerName));
+}
+
+//generates the HTML for a layer panel
+var makeLayerPanel = function(layerName) {
+    return '<div id="layerPanel" class="panel">' +
+        '<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanels" href="#' + layerName + '_panel">' +
+            layerName +
+        '</a>' +
+        '<span class="layerSpan">' +
+            '<input type="checkbox" id="' + layerName + '_checkbox"  checked="checked">' +
+        '</span>' +
+     
+        '<div id="' + layerName + '_panel" class="panel-collapse collapse">'+
+            'layer info' +
+        '</div>' +
+    '</div>';
+}

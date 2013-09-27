@@ -63,7 +63,25 @@
 						<span>Map Layers</span>
 					</a>
 					<div id="panel2" class="panel-collapse collapse">
-						<div class="panel-body">Stuff2</div>
+						<!-- Layers and the add layer button go in here -->
+						<div class="panel-body">
+							<div id="layerPanel-group" class="panel-group">
+								<div id="layerPanel" class="panel">
+									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanels" href="#centros_medicos_panel">
+										centros_medicos
+									</a>
+									<span class="layerSpan">
+										<input type="checkbox" id="centros_medicos_checkbox"  checked="checked">
+									</span>
+									 
+									<div id="centros_medicos_panel" class="panel-collapse collapse">
+										layer info
+									</div>
+								</div>
+							</div>
+							
+							<a class="btn btn-default" href="#addLayerWindow" data-toggle="modal" style="width:100%">Add Layer</a>
+						</div>
 					</div>
 				</div>
 				<div class="panel">
@@ -77,6 +95,29 @@
 			</div>
 			<button type="button" data-toggle="collapse" data-target="#pulldown-content" class="toggle btn btn-default">Toggle Menu</button>
 		</div>
+		
+		<div id="addLayerWindow" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+     				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">&times;</button>
+        				<h4 class="modal-title">Modal title</h4>
+      				</div>
+      				<div class="modal-body">
+        				<p>URL of the WMS endpoint</p>
+        				<input id="newLayerURL" type="text">
+        				<p>Workspace</p>
+        				<input id="newLayerWorkspace" type="text">
+        				<p>layername</p>
+        				<input id="newLayerName" type="text">
+      				</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        				<button type="button" class="btn btn-primary" onClick="saveLayer()">Save changes</button>
+      				</div>
+    			</div><!-- /.modal-content -->
+  			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</div>
 	<script type="text/javascript" src="js/ol-simple.js"></script>
     	<script type="text/javascript" src="js/index.js"></script>

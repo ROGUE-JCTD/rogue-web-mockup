@@ -40,6 +40,12 @@ html, body {
     -ms-transform:rotate(45deg);
 }
 
+/* Overwriting these because the default rounded corners didn't look quite right */
+.panel-heading {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
 /* we have to explicitly set the full-screen width, otherwise it will only take up the original width of the window its in */
 .map:-moz-full-screen {
 	height: 100%;
@@ -60,8 +66,6 @@ html, body {
 	top: 38px;
 	left: auto;
 }
-#map .ol-zoom-in {
-} 
 #map .ol-zoom-out {
 	top: 30px;
 	margin-top: 202px;
@@ -81,4 +85,11 @@ html, body {
 	left: auto;
 	width: 24px;
 	height: 12px;
+}
+
+#layerPanel a.accordion-toggle { 
+	display: inline-block;
+}
+
+.layerSpan {
 }
