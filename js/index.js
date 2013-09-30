@@ -76,6 +76,8 @@ var map = new ol.Map({
     })
 });
 
+var numBaseLayers = 3;
+
 map.on('click', function(evt) {
     //this won't work until openlayers gets around to supporting wmsGetFeautureInfo
     console.log("map.onclick", evt.getPixel());
@@ -91,7 +93,7 @@ map.on('click', function(evt) {
     });
 });
 
-var saveLayer = function() {
+var addLayer = function() {
     var layerName = $("#newLayerName").val();
     var formattedLayerName = $("#newLayerWorkspace").val() + ':' + layerName;
     
@@ -103,6 +105,20 @@ var saveLayer = function() {
       }));
     
     $("#layerPanel-group").append(makeLayerPanel(layerName));
+}
+
+var addBaseLayer = function() {
+    var layerName = $("#newBaseLayerName").val();
+    var formattedLayerName = $("#newBaseLayerWorkspace").val() + ':' + layerName;
+    
+    /*map.addLayer(new ol.layer.Tile({
+        source: new ol.source.TileWMS({
+            url: $("#newBaseLayerURL").val(),
+            params: {'LAYERS': formattedLayerName}
+         })
+      }));*/
+    numBaseLayers++;
+    $("#BaseLayerList").prepend(makeBaseLayer(layerName));
 }
 
 //generates the HTML for a layer panel
@@ -136,6 +152,12 @@ var makeLayerPanel = function(layerName) {
     '</div>';
 }
 
+var makeBaseLayer = function(layerName) {
+    return '<li class="list-group-item">' +
+    '<input class="pull-right" type="radio" name="baselayers" id="baselayer' + (numBaseLayers-1) + '" value="option' + numBaseLayers +'" checked>' + layerName +
+    '</li>';
+}
+
 var startRemove = function() {
     var baseLayers = $("#BaseLayerList").children();
     console.log("baseLayers", baseLayers);
@@ -159,4 +181,13 @@ var endRemove = function() {
     for(var index = 0; index < baseLayers.length; index++) {
         baseLayers[index].children[0].type = "radio";
     }
+}
+
+var saveMap = function() {
+    var mapName = $("#mapTitle").val();
+    if(mapName !== "") {
+        $("#MapName").text(mapName);
+    }
+    
+    $("#mapinfo").modal('hide');
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>New Web Client Thing</title>
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    	<link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css"></link>
-    	<link rel="stylesheet" href="Dependencies/Bootstrap/css/bootstrap.css" type="text/css"></link>
-    	<link rel="stylesheet" href="css/index.css" type="text/css"></link>
-	</head>
-	<body>
-    	<script src="http://code.jquery.com/jquery.js"></script>
-    	<script src="Dependencies/Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<head>
+<title>New Web Client Thing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css"></link>
+<link rel="stylesheet" href="Dependencies/Bootstrap/css/bootstrap.css" type="text/css"></link>
+<link rel="stylesheet" href="css/index.css" type="text/css"></link>
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="Dependencies/Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<!-- <script type="text/javascript" src="http://ol3js.org/en/master/build/ol.js"></script>-->
 	<div id="map" class="map">
 		<div id="pulldown">
@@ -17,7 +17,7 @@
 				<div class="panel-heading">
 					<div class="row col-md-12">
 						<span style="font-weight: 100; font-size: 20px;">
-							<em>New Map</em>
+							<em id="MapName">New Map</em>
 						</span>
 						<a data-toggle="modal" title="Save Map" class="btn btn-sm btn-default pull-right" href="#mapinfo">
 							<i class="glyphicon glyphicon-floppy-disk"></i>
@@ -62,13 +62,11 @@
 						<div class="panel-body">
 							<div id="layerPanel-group" class="panel-group">
 								<div id="layerPanel" class="panel">
-									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanel-group" href="#centros_medicos_panel">
-										centros_medicos
-									</a>
+									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanel-group"
+										href="#centros_medicos_panel"> centros_medicos </a>
 									<span class="layerSpan">
-										<input type="checkbox" id="centros_medicos_checkbox"  checked="checked">
+										<input type="checkbox" id="centros_medicos_checkbox" checked="checked">
 									</span>
-									 
 									<div id="centros_medicos_panel" class="panel-collapse collapse">
 										layer info
 										<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
@@ -82,16 +80,15 @@
 										</button>
 										<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">
 											<i class="glyphicon glyphicon-minus-sign"></i>
-										</button>	
+										</button>
 										<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">
 											<i class="glyphicon glyphicon-move rotate-45deg"></i>
 										</button>
 									</div>
 								</div>
 							</div>
-							
 							<hr>
-							<a class="btn btn-default" href="#addLayerWindow" data-toggle="modal" style="width:100%">Add Layer</a>
+							<a class="btn btn-default btn-block" href="#addLayerWindow" data-toggle="modal">Add Layer</a>
 						</div>
 					</div>
 				</div>
@@ -102,10 +99,10 @@
 					<div id="panel3" class="panel-collapse collapse">
 						<div class="row">
 							<div class="btn-group col-md-12">
-								<button class="btn btn-sm btn-default col-md-6">
+								<a class="btn btn-sm btn-default col-md-6" href="#addBaseLayerWindow" data-toggle="modal">
 									<i class="glyphicon glyphicon-plus-sign"></i>
 									Add Base Layer
-								</button>
+								</a>
 								<button id="RemoveBaseButton" onClick="startRemove()" class="btn btn-sm btn-default col-md-6">
 									<i class="glyphicon glyphicon-minus-sign"></i>
 									Remove Base Layers
@@ -128,14 +125,6 @@
 								</li>
 								<li class="list-group-item">
 									<input class="pull-right" type="radio" name="baselayers" id="baselayer2" value="option3">
-									MapQuest Imagery
-								</li>
-								<li class="list-group-item">
-									<input class="pull-right" type="radio" name="baselayers" id="baselayer3" value="option4">
-									MapQuest OpenStreetMap
-								</li>
-								<li class="list-group-item">
-									<input class="pull-right" type="radio" name="baselayers" id="baselayer4" value="option5">
 									No Background
 								</li>
 							</ul>
@@ -149,26 +138,27 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
 						<h4 class="modal-title">Map Info</h4>
 					</div>
 					<div class="modal-body">
-					<form>
-					<div class="form-group">
-					<label for="mapTitle" class="control-label">Map Title</label>
-					<input type="text" class="form-control" placeholder="New Map">
-					</div>
-					<hr>
-					<div class="form-group">
-					<label for="mapAbstract" class="control-label">Abstract</label>
-					<textarea class="form-control" rows="5"></textarea>
-					</div>
-					
-					</form>
+						<form>
+							<div class="form-group">
+								<label for="mapTitle" class="control-label">Map Title</label>
+								<input id="mapTitle" type="text" class="form-control" placeholder="New Map">
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="mapAbstract" class="control-label">Abstract</label>
+								<textarea id="mapAbstract" class="form-control" rows="5"></textarea>
+							</div>
+						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save</button>
+						<button type="button" class="btn btn-primary" onClick="saveMap();">Save</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
@@ -178,30 +168,79 @@
 		<div id="addLayerWindow" class="modal fade">
 			<div class="modal-dialog">
 				<div class="modal-content">
-     				<div class="modal-header">
-        				<button type="button" class="close" data-dismiss="modal">&times;</button>
-        				<h4 class="modal-title">Modal title</h4>
-      				</div>
-      				<div class="modal-body">
-        				<p>URL of the WMS endpoint</p>
-        				<input id="newLayerURL" type="text"> 
-        				<hr>
-        				<p>Workspace</p>
-        				<input id="newLayerWorkspace" type="text"> 
-        				<hr>
-        				<p>layername</p>
-        				<input id="newLayerName" type="text">
-      				</div>
-      				<div class="modal-footer">
-        				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        				<button type="button" class="btn btn-primary" onClick="saveLayer()">Save changes</button>
-      				</div>
-    			</div><!-- /.modal-content -->
-  			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						<h4 class="modal-title">Add Layer</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="newLayerURL" class="control-label">URL of the WMS endpoint</label>
+								<input id="newLayerURL" type="text" class="form-control" placeholder="URL">
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="newLayerWorkspace" class="control-label">Workspace</label>
+								<input id="newLayerWorkspace" type="text" class="form-control" placeholder="Workspace">
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="newLayerName" class="control-label">Layer Name</label>
+								<input id="newLayerName" type="text" class="form-control" placeholder="Name">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onClick="addLayer()">Add</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<div id="addBaseLayerWindow" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						<h4 class="modal-title">Add Base Layer</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="newBaseLayerURL" class="control-label">URL of the WMS endpoint</label>
+								<input id="newBaseLayerURL" type="text" class="form-control" placeholder="URL">
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="newBaseLayerWorkspace" class="control-label">Workspace</label>
+								<input id="newBaseLayerWorkspace" type="text" class="form-control" placeholder="Workspace">
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="newBaseLayerName" class="control-label">Base Layer Name</label>
+								<input id="newBaseLayerName" type="text" class="form-control" placeholder="Name">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onClick="addBaseLayer()">Add</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
 	</div>
 	<script type="text/javascript" src="js/ol-simple.js"></script>
-    	<script type="text/javascript" src="js/index.js"></script>
-    	
-    </body>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
 </html>
