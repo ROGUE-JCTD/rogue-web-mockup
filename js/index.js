@@ -46,14 +46,15 @@ var map = new ol.Map({
     new ol.layer.Tile({
       source: new ol.source.OSM()
     }),
-    new ol.layer.Tile({
-        source: new ol.source.TileDebug({
-            projection: 'EPSG:3857',
-            tileGrid: new ol.tilegrid.XYZ({
-                maxZoom: 22
-            })
-        })
-    }),
+    //a tile grid layer for debugging purposes
+//    new ol.layer.Tile({
+//        source: new ol.source.TileDebug({
+//            projection: 'EPSG:3857',
+//            tileGrid: new ol.tilegrid.XYZ({
+//                maxZoom: 22
+//            })
+//        })
+//    }),
     new ol.layer.Tile({
        source: new ol.source.TileWMS({
           url: 'http://geoserver.rogue.lmnsolutions.com/geoserver/wms',
@@ -97,12 +98,14 @@ var addLayer = function() {
     var layerName = $("#newLayerName").val();
     var formattedLayerName = $("#newLayerWorkspace").val() + ':' + layerName;
     
-    map.addLayer(new ol.layer.Tile({
+    var newLayer = new ol.layer.Tile({
         source: new ol.source.TileWMS({
             url: $("#newLayerURL").val(),
             params: {'LAYERS': formattedLayerName}
          })
-      }));
+      });
+    console.log("new layer ", newLayer);
+    map.addLayer(newLayer);
     
     $("#layerPanel-group").append(makeLayerPanel(layerName));
 }

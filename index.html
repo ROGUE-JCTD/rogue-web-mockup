@@ -61,6 +61,7 @@
 						<!-- Layers and the add layer button go in here -->
 						<div class="panel-body">
 							<div id="layerPanel-group" class="panel-group">
+								<!-- this one is just a mock-up for the centros_medicos layer I hard-coded in -->
 								<div id="layerPanel" class="panel">
 									<a class="panel-title panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#layerPanel-group"
 										href="#centros_medicos_panel"> centros_medicos </a>
@@ -68,7 +69,68 @@
 										<input type="checkbox" id="centros_medicos_checkbox" checked="checked">
 									</span>
 									<div id="centros_medicos_panel" class="panel-collapse collapse">
-										layer info
+										<ul class="nav nav-tabs">
+  											<li class="active"><a href="#attrTab" data-toggle="tab">Attributes</a></li>
+  											<li><a href="#styleTab" data-toggle="tab">Style</a></li>
+  											<li><a href="#dbTab" data-toggle="tab">Database</a></li>
+										</ul>
+										<div class="tab-content">
+											<div class="tab-pane active" id="attrTab">
+												<div class="input-group input-group-sm">
+													<span class="input-group-addon">coord</span>
+  													<input type="text" class="form-control" placeholder="x">
+  													<input type="text" class="form-control" placeholder="y">
+												</div>
+												<div class="input-group input-group-sm">
+													<span class="input-group-addon">nombre</span>
+  													<input type="text" class="form-control" placeholder="nombre">
+												</div>
+												<div class="input-group input-group-sm">
+													<span class="input-group-addon">tipo</span>
+  													<input type="text" class="form-control" placeholder="tipo">
+												</div>
+												<div class="input-group input-group-sm">
+													<span class="input-group-addon">numero_de_medicos</span>
+  													<input type="text" class="form-control" placeholder="numero_de_medicos">
+												</div>
+												<div class="input-group input-group-sm">
+													<span class="input-group-addon">comentarios</span>
+  													<input type="text" class="form-control" placeholder="comentarios">
+												</div>
+											</div>
+											<div class="tab-pane" id="styleTab">
+												<label for="inputSymbol">Symbol</label> <br>
+												<div id="inputSymbol" class="btn-group" style="display: inline-block;">
+													<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"> 
+														Select symbol 
+														<span class="caret"></span>
+													</a>
+													<ul class="dropdown-menu">
+														<li><a href="#">circle</a></li>
+														<li><a href="#">square</a></li>
+														<li><a href="#">triangle</a></li>
+													</ul>
+												</div>
+												
+												<br> <br>
+												
+												<label for="inputSymbolSize">Size</label> 
+												<input id="inputSymbolSize" class="form-control" type="number" value="0"> <br>
+												<button class="btn btn-danger btn-block">
+													<i class="glyphicon glyphicon-edit"></i> Edit SLD
+												</button>
+											</div>
+											<div class="tab-pane" id="dbTab">
+												There should be a table or something here
+												<div class="btn-group btn-group-justified">
+  													<a type="button" class="btn btn-sm btn-default">Add Row</a>
+  													<a type="button" class="btn btn-sm btn-default">Add Col</a>
+  													<a type="button" class="btn btn-sm btn-default">Del Row</a>
+  													<a type="button" class="btn btn-sm btn-default">Sort</a>
+												</div>
+											</div>
+										</div>
+										<br>
 										<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
 											<i class="glyphicon glyphicon-pencil"></i>
 										</button>
@@ -87,7 +149,7 @@
 									</div>
 								</div>
 							</div>
-							<hr>
+							<br>
 							<a class="btn btn-default btn-block" href="#addLayerWindow" data-toggle="modal">Add Layer</a>
 						</div>
 					</div>
