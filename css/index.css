@@ -62,6 +62,15 @@ hr {
 	border-top: 1px solid #80a0b0;	
 }
 
+.nav-tabs {
+	border-bottom: 1px solid #80a0b0;
+}
+
+#myCarousel {
+	padding-right: 0;
+	padding-left: 0;
+}
+
 .list-group-item {
 	background-color:#97B3CD;
 	border: 1px solid #80a0b0;
@@ -80,7 +89,7 @@ hr {
 	margin-right: 0;
 }
 #layerPanel-group {
-	height: 215px;
+	height: 344px;
 	overflow: auto;
 }
 

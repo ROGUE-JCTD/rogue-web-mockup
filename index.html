@@ -100,50 +100,90 @@
 												</div>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">nombre</span>
-  													<input type="text" class="form-control" placeholder="nombre">
+													<input type="text" class="form-control" placeholder="nombre">
 												</div>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">tipo</span>
-  													<input type="text" class="form-control" placeholder="tipo">
+													<input type="text" class="form-control" placeholder="tipo">
 												</div>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">numero_de_medicos</span>
-  													<input type="text" class="form-control" placeholder="numero_de_medicos">
+													<input type="text" class="form-control" placeholder="numero_de_medicos">
 												</div>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">comentarios</span>
-  													<input type="text" class="form-control" placeholder="comentarios">
+													<input type="text" class="form-control" placeholder="comentarios">
 												</div>
 											</div>
 											<div class="tab-pane" id="styleTab">
-												<label for="inputSymbol">Symbol</label> <br>
+												<br>
+												<div class="col-md-12">
+													<div id="myCarousel" class="carousel slide">
+														<ol class="carousel-indicators">
+															<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+															<li data-target="#myCarousel" data-slide-to="1"></li>
+															<li data-target="#myCarousel" data-slide-to="2"></li>
+															<li data-target="#myCarousel" data-slide-to="3"></li>
+														</ol>
+														<div class="carousel-inner">
+															<div class="active item">
+																<img src="css/img/PT-simple.png">
+															</div>
+															<div class="item">
+																<img src="css/img/PT-unique.png">
+															</div>
+															<div class="item">
+																<img src="css/img/PT-graduated.png">
+															</div>
+															<div class="item">
+																<img src="css/img/PT-density.png">
+															</div>
+														</div>
+														<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+															<span class="glyphicon glyphicon-chevron-left"></span>
+														</a>
+														<a class="carousel-control right" href="#myCarousel" data-slide="next">
+															<span class="glyphicon glyphicon-chevron-right"></span>
+														</a>
+													</div>
+												</div>
+												<hr>
+												<label for="inputSymbol">Symbol</label>
+												<br>
 												<div id="inputSymbol" class="btn-group">
-													<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"> 
-														Select symbol 
+													<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+														Select symbol
 														<span class="caret"></span>
 													</a>
 													<ul class="dropdown-menu">
-														<li><a href="#">circle</a></li>
-														<li><a href="#">square</a></li>
-														<li><a href="#">triangle</a></li>
+														<li>
+															<a href="#">circle</a>
+														</li>
+														<li>
+															<a href="#">square</a>
+														</li>
+														<li>
+															<a href="#">triangle</a>
+														</li>
 													</ul>
 												</div>
-												
-												<br> <br>
-												
-												<label for="inputSymbolSize">Size</label> 
-												<input id="inputSymbolSize" class="form-control" type="number" value="0"> <br>
+												<br>
+												<br>
+												<label for="inputSymbolSize">Size</label>
+												<input id="inputSymbolSize" class="form-control" type="number" value="0">
+												<br>
 												<button class="btn btn-danger btn-block">
-													<i class="glyphicon glyphicon-edit"></i> Edit SLD
+													<i class="glyphicon glyphicon-edit"></i>
+													Edit SLD
 												</button>
 											</div>
 											<div class="tab-pane" id="dbTab">
 												There should be a table or something here
 												<div class="btn-group btn-group-justified">
-  													<a type="button" class="btn btn-sm btn-default">Add Row</a>
-  													<a type="button" class="btn btn-sm btn-default">Add Col</a>
-  													<a type="button" class="btn btn-sm btn-default">Del Row</a>
-  													<a type="button" class="btn btn-sm btn-default">Sort</a>
+													<a type="button" class="btn btn-sm btn-default">Add Row</a>
+													<a type="button" class="btn btn-sm btn-default">Add Col</a>
+													<a type="button" class="btn btn-sm btn-default">Del Row</a>
+													<a type="button" class="btn btn-sm btn-default">Sort</a>
 												</div>
 											</div>
 										</div>
@@ -178,16 +218,18 @@
 						</div>
 						<div class="row" id="BaseLayerRow">
 							<ul id="BaseLayerList" class="list-group col-md-12">
-								<li class="list-group-item">
-									<input class="pull-right" type="radio" name="baselayers" id="baselayer0" value="option1" checked>
+								<li id="baselayer0" class="list-group-item">
+									<input class="pull-right" type="radio" name="baselayers" id="radio1" value="option1" checked>
+									<input class="pull-right" type="checkbox" name="baselayers" id="checkbox1" value="option1" style="display: none;">
 									OpenStreetMap
 								</li>
-								<li class="list-group-item">
-									<input class="pull-right" type="radio" name="baselayers" id="baselayer1" value="option2">
+								<li id="baselayer1" class="list-group-item">
+									<input class="pull-right" type="radio" name="baselayers" id="radio2" value="option2">
+									<input class="pull-right" type="checkbox" name="baselayers" id="checkbox2" value="option2" style="display: none;">
 									bluemarble
 								</li>
-								<li class="list-group-item">
-									<input class="pull-right" type="radio" name="baselayers" id="baselayer2" value="option3">
+								<li id="noBackground" class="list-group-item">
+									<input class="pull-right" type="radio" name="baselayers" id="radio3" value="option3">
 									No Background
 								</li>
 							</ul>

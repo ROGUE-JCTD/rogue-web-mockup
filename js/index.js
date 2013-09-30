@@ -156,33 +156,35 @@ var makeLayerPanel = function(layerName) {
 }
 
 var makeBaseLayer = function(layerName) {
-    return '<li class="list-group-item">' +
-    '<input class="pull-right" type="radio" name="baselayers" id="baselayer' + (numBaseLayers-1) + '" value="option' + numBaseLayers +'" checked>' + layerName +
-    '</li>';
+    return '<li id="baselayer'+ (numBaseLayers-1) +'" class="list-group-item">' +
+    '<input class="pull-right" type="radio" name="baselayers" id="radio'+ numBaseLayers +'" value="option'+ numBaseLayers +'">' +
+    '<input class="pull-right" type="checkbox" name="baselayers" id="checkbox'+ numBaseLayers +'" value="option'+ numBaseLayers +'" style="display: none;">' +
+    layerName +
+'</li>'
 }
 
 var startRemove = function() {
     var baseLayers = $("#BaseLayerList").children();
-    console.log("baseLayers", baseLayers);
     $("#RemoveBaseButton").hide();
     $("#DeleteBaseButton").show();
-    for(var index = 0; index < baseLayers.length; index++) {
-        baseLayers[index].children[0].type = "checkbox";
+    for(var index = 0; index < baseLayers.length-1; index++) {
+        $("#" + baseLayers[index].children[0].id).hide();
+        $("#" + baseLayers[index].children[1].id).show();
     }
 }
 
 var endRemove = function() {
-    var checkedLayers = $("#BaseLayerList input:checked");    
+    var checkedLayers = $('#BaseLayerList input[type="checkbox"]:checked'); 
+
     for(var index = 0; index < checkedLayers.length; index++) {
-        console.log("layers", checkedLayers[index].id);
         $("#"+checkedLayers[index].id).parent().remove();
     }   
     $("#RemoveBaseButton").show();
     $("#DeleteBaseButton").hide();
     var baseLayers = $("#BaseLayerList").children();
-    console.log("baseLayers", baseLayers);
-    for(var index = 0; index < baseLayers.length; index++) {
-        baseLayers[index].children[0].type = "radio";
+    for(var index = 0; index < baseLayers.length-1; index++) {
+        $("#" + baseLayers[index].children[0].id).show();
+        $("#" + baseLayers[index].children[1].id).hide();
     }
 }
 
