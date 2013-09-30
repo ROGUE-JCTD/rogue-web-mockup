@@ -70,16 +70,33 @@
 									</span>
 									<div id="centros_medicos_panel" class="panel-collapse collapse">
 										<ul class="nav nav-tabs">
-  											<li class="active"><a href="#attrTab" data-toggle="tab">Attributes</a></li>
+  											<li class="active"><a href="#featureTab" data-toggle="tab">Features</a></li>
   											<li><a href="#styleTab" data-toggle="tab">Style</a></li>
   											<li><a href="#dbTab" data-toggle="tab">Database</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane active" id="attrTab">
+											<div class="tab-pane active" id="featureTab">
+												<div class="btn-group btn-group-justified">
+													<a data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
+														<i class="glyphicon glyphicon-pencil"></i>
+													</a>
+													<a data-toggle="tooltip" title="Edit a feature" class="btn btn-sm btn-default">
+														<i class="glyphicon glyphicon-edit"></i>
+													</a>
+													<a data-toggle="tooltip" title="Save a feature" class="btn btn-sm btn-default">
+														<i class="glyphicon glyphicon-ok-sign"></i>
+													</a>
+													<a data-toggle="tooltip" title="Delete a feature" class="btn btn-sm btn-default">
+														<i class="glyphicon glyphicon-minus-sign"></i>
+													</a>
+													<a data-toggle="tooltip" title="Fix a polygon to have right angles" class="btn btn-sm btn-default">
+														<i class="glyphicon glyphicon-move rotate-45deg"></i>
+													</a>
+												</div>
+												<h4>Attributes</h4>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">coord</span>
-  													<input type="text" class="form-control" placeholder="x">
-  													<input type="text" class="form-control" placeholder="y">
+  													<input type="text" class="form-control" placeholder="coordinates">
 												</div>
 												<div class="input-group input-group-sm">
 													<span class="input-group-addon">nombre</span>
@@ -100,7 +117,7 @@
 											</div>
 											<div class="tab-pane" id="styleTab">
 												<label for="inputSymbol">Symbol</label> <br>
-												<div id="inputSymbol" class="btn-group" style="display: inline-block;">
+												<div id="inputSymbol" class="btn-group">
 													<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"> 
 														Select symbol 
 														<span class="caret"></span>
@@ -130,22 +147,6 @@
 												</div>
 											</div>
 										</div>
-										<br>
-										<button data-toggle="button tooltip" title="Add a new feature" class="btn btn-sm btn-default">
-											<i class="glyphicon glyphicon-pencil"></i>
-										</button>
-										<button data-toggle="tooltip" title="Edit a feature" disabled="disabled" class="btn btn-sm btn-default">
-											<i class="glyphicon glyphicon-edit"></i>
-										</button>
-										<button data-toggle="tooltip" title="Save a feature" disabled="disabled" class="btn btn-sm btn-default">
-											<i class="glyphicon glyphicon-ok-sign"></i>
-										</button>
-										<button data-toggle="tooltip" title="Delete a feature" disabled="disabled" class="btn btn-sm btn-default">
-											<i class="glyphicon glyphicon-minus-sign"></i>
-										</button>
-										<button data-toggle="tooltip" title="Fix a polygon to have right angles" disabled="disabled" class="btn btn-sm btn-default">
-											<i class="glyphicon glyphicon-move rotate-45deg"></i>
-										</button>
 									</div>
 								</div>
 							</div>
