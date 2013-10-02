@@ -26,6 +26,18 @@ html, body {
 	background-color:#97B3CD;
 }
 
+.panel-body {
+	padding: 0px 15px;
+}
+
+#search-panel {
+		margin: 0;
+	border: 0;
+	font-weight: normal;
+	overflow: visible;
+	background-color:#97B3CD !important;
+}
+
 .modal-header {
 	color: #fff;
 	background-color:#155481;
@@ -58,6 +70,16 @@ html, body {
 	border-bottom: 1px solid #80a0b0;
 }
 
+.layer-heading {
+	background-color: #4977A3 !important;
+	padding: 5px 15px;
+}
+
+.layer-title {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
 hr {
 	border-top: 1px solid #80a0b0;	
 }
@@ -83,13 +105,13 @@ hr {
 }
 
 #BaseLayerRow {
-	height: 206px;
+	max-height: 206px;
 	overflow: auto;
 	margin-left: 0;
 	margin-right: 0;
 }
 #layerPanel-group {
-	height: 344px;
+	max-height: 344px;
 	overflow: auto;
 }
 
