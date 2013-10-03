@@ -38,6 +38,23 @@ html, body {
 	background-color:#97B3CD !important;
 }
 
+.nav-tabs > li > a {
+	background-color: #155481;
+	color: #FFF;
+}
+
+.nav > li > a {
+	padding: 3px 10px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus  {
+	background-color: #155481;
+}
+
+.list-group-item {
+	padding: 6px 7px;
+}
+
 .modal-header {
 	color: #fff;
 	background-color:#155481;
@@ -98,20 +115,20 @@ hr {
 	border: 1px solid #80a0b0;
 }
 
-#BaseLayerList {
+#AttributeList {
 	margin-bottom: 0;
 	padding-left: 0;
 	padding-right: 0;
 }
 
-#BaseLayerRow {
+#AttributeRow {
 	max-height: 206px;
 	overflow: auto;
 	margin-left: 0;
 	margin-right: 0;
 }
 #layerPanel-group {
-	max-height: 344px;
+	max-height: 420px;
 	overflow: auto;
 }
 

@@ -56,7 +56,7 @@
 					<a class="panel-heading" data-toggle="collapse" href="#panel2">
 						<span>Map Layers</span>
 					</a>
-					<div id="panel2" class="panel-collapse collapse">
+					<div id="panel2" class="panel-collapse collapse in">
 						<!-- Layers and the add layer button go in here -->
 						<div id="layerPanel-group" class="panel-group">
 							<!-- this one is just a mock-up for the centros_medicos layer I hard-coded in -->
@@ -76,13 +76,13 @@
 									<br>
 										<ul class="nav nav-tabs">
 											<li class="active">
-												<a href="#featureTab" data-toggle="tab">Features</a>
+												<a href="#featureTab" data-toggle="tab">Info</a>
 											</li>
 											<li>
 												<a href="#styleTab" data-toggle="tab">Style</a>
 											</li>
 											<li>
-												<a href="#dbTab" data-toggle="tab">Table</a>
+												<a href="#dbTab" data-toggle="tab">GeoGit</a>
 											</li>
 										</ul>
 										<div class="tab-content">
@@ -106,26 +106,48 @@
 													</a>
 												</div>
 												-->
-												<h4>Attributes</h4>
-												<div class="input-group input-group-sm">
-													<span class="input-group-addon">coord</span>
-													<input type="text" class="form-control" placeholder="coordinates">
+												<br>
+												<label for="AttributeRow">Attributes</label>
+												<div class="row" id="AttributeRow">
+													<ul id="AttributeList" class="list-group">
+														<li id="attribute0" class="list-group-item">
+															<button type="button" data-toggle="button" class="btn btn-xs btn-default pull-right">
+																<i class="glyphicon glyphicon-eye-open"></i>
+															</button>
+															coord
+														</li>
+														<li id="attribute1" class="list-group-item">
+															<button type="button" data-toggle="button" class="btn btn-xs btn-default pull-right">
+																<i class="glyphicon glyphicon-eye-open"></i>
+															</button>
+															nombre
+														</li>
+														<li id="attribute2" class="list-group-item">
+															<button type="button" data-toggle="button" class="btn btn-xs btn-default pull-right">
+																<i class="glyphicon glyphicon-eye-open"></i>
+															</button>
+															tipo
+														</li>
+														<li id="attribute3" class="list-group-item">
+															<button type="button" data-toggle="button" class="btn btn-xs btn-default pull-right">
+																<i class="glyphicon glyphicon-eye-open"></i>
+															</button>
+															numero_de_medicos
+														</li>
+														<li id="attribute4" class="list-group-item">
+															<button type="button" data-toggle="button" class="btn btn-xs btn-default pull-right">
+																<i class="glyphicon glyphicon-eye-open"></i>
+															</button>
+															comentarios
+														</li>
+													</ul>
 												</div>
-												<div class="input-group input-group-sm">
-													<span class="input-group-addon">nombre</span>
-													<input type="text" class="form-control" placeholder="nombre">
-												</div>
-												<div class="input-group input-group-sm">
-													<span class="input-group-addon">tipo</span>
-													<input type="text" class="form-control" placeholder="tipo">
-												</div>
-												<div class="input-group input-group-sm">
-													<span class="input-group-addon">numero_de_medicos</span>
-													<input type="text" class="form-control" placeholder="numero_de_medicos">
-												</div>
-												<div class="input-group input-group-sm">
-													<span class="input-group-addon">comentarios</span>
-													<input type="text" class="form-control" placeholder="comentarios">
+												<br>
+												<div class="row">
+													<button type="button" data-toggle="button" class="btn btn-xs btn-default col-md-offset-8">
+														<i class="glyphicon glyphicon-list-alt"></i>
+														Table View
+													</button>
 												</div>
 											</div>
 											<div class="tab-pane" id="styleTab">
@@ -164,7 +186,7 @@
 												<label for="inputSymbol">Symbol</label>
 												<br>
 												<div id="inputSymbol" class="btn-group">
-													<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+													<a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 														Select symbol
 														<span class="caret"></span>
 													</a>
@@ -183,32 +205,26 @@
 												<br>
 												<br>
 												<label for="inputSymbolSize">Size</label>
-												<input id="inputSymbolSize" class="form-control" type="number" value="0">
+												<input id="inputSymbolSize" class="form-control input-sm" type="number" value="0">
 												<br>
-												<button class="btn btn-danger btn-block">
+												<button class="btn btn-sm btn-default btn-block">
 													<i class="glyphicon glyphicon-edit"></i>
 													Edit SLD
 												</button>
 											</div>
 											<div class="tab-pane" id="dbTab">
-												There should be a table or something here
-												<div class="btn-group btn-group-justified">
-													<a type="button" class="btn btn-sm btn-default">Add Row</a>
-													<a type="button" class="btn btn-sm btn-default">Add Col</a>
-													<a type="button" class="btn btn-sm btn-default">Del Row</a>
-													<a type="button" class="btn btn-sm btn-default">Sort</a>
-												</div>
+
 											</div>
 										</div>
 										<hr>
 										<button id="RemoveButton" class="btn btn-sm btn-danger btn-block">
 											<i class="glyphicon glyphicon-minus-sign"></i>
-											Remove Layers
+											Remove Layer
 										</button>
 										<br>
-									</div>
-								</div>
-							</div>
+													</div>
+												</div>
+											</div>
 							<a class="panel-heading layer-heading" href="#addLayerWindow" data-toggle="modal">
 								<i class="glyphicon glyphicon-plus-sign"></i>
 								Add Layer
