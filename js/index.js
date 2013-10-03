@@ -64,7 +64,12 @@ var map = new ol.Map({
     ],
     controls: ol.control.defaults().extend([
         new ol.control.FullScreen(), 
-        new ol.control.ZoomSlider()
+        new ol.control.ZoomSlider(),
+        new ol.control.MousePosition({
+            projection: "EPSG:4326",
+            target: document.getElementById('map'),
+            coordinateFormat: ol.coordinate.createStringXY(4)
+        })
     ]),
     interactions: ol.interaction.defaults().extend([
         new ol.interaction.DragRotate()

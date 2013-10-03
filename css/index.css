@@ -185,6 +185,14 @@ hr {
 	width: 24px;
 	height: 12px;
 }
+#map .ol-mouse-position {
+	position: absolute;
+	left: 5px;
+	right: auto;
+	top: auto;
+	bottom: 0px;
+	z-index: 1000;
+}
 
 #layerPanel a.accordion-toggle { 
 	display: inline-block;
