@@ -17,11 +17,10 @@
 		<div id="pulldown">
 			<div class="panel flat" id="MapTitle">
 				<div class="panel-heading">
-					<div class="row col-md-12">
-						<span style="font-weight: 100; font-size: 20px;">
-							<em id="MapName">New Map</em>
-						</span>
-					</div>
+					<span style="font-weight: 100; font-size: 20px;">
+						<em id="MapName">New Map</em>
+					</span>
+					<span class="badge pull-right">4</span>
 				</div>
 			</div>
 			<div id="pulldown-content" class="panel-group in">
@@ -53,10 +52,19 @@
 					</div>
 				</div>
 				<div class="panel">
-					<a class="panel-heading" data-toggle="collapse" href="#panel2">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#notificationPanel">
+						<span>Notifications</span>
+						<span class="badge pull-right">4</span>
+					</a>
+					<div id="notificationPanel" class="panel-collapse collapse">
+						<div id="notificationPanel-group" class="panel-group">Updates go here</div>
+					</div>
+				</div>
+				<div class="panel">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#panel2">
 						<span>Map Layers</span>
 					</a>
-					<div id="panel2" class="panel-collapse collapse in">
+					<div id="panel2" class="panel-collapse collapse">
 						<!-- Layers and the add layer button go in here -->
 						<div id="layerPanel-group" class="panel-group">
 							<!-- this one is just a mock-up for the centros_medicos layer I hard-coded in -->
@@ -65,7 +73,9 @@
 									<a class="accordion-toggle collapsed layer-title" data-toggle="collapse" data-parent="#layerPanel-group" href="#centros_medicos_panel">
 										centros_medicos </a>
 									<div class="pull-right">
-										<button type="button" data-toggle="button" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></button>
+										<button type="button" data-toggle="button" class="btn btn-xs btn-default">
+											<i class="glyphicon glyphicon-eye-open"></i>
+										</button>
 										<button type="button" data-toggle="button" class="btn btn-xs btn-default">
 											<i class="glyphicon glyphicon-pencil"></i>
 										</button>
@@ -73,16 +83,13 @@
 								</div>
 								<div class="panel-body">
 									<div id="centros_medicos_panel" class="panel-collapse collapse">
-									<br>
+										<br>
 										<ul class="nav nav-tabs">
 											<li class="active">
 												<a href="#featureTab" data-toggle="tab">Info</a>
 											</li>
 											<li>
 												<a href="#styleTab" data-toggle="tab">Style</a>
-											</li>
-											<li>
-												<a href="#dbTab" data-toggle="tab">GeoGit</a>
 											</li>
 										</ul>
 										<div class="tab-content">
@@ -106,6 +113,23 @@
 													</a>
 												</div>
 												-->
+												<br>
+												<div class="row col-md-12">
+													<div class="btn-group btn-group-justified">
+														<a type="button" data-toggle="button" class="btn btn-xs btn-default">
+															<i class="glyphicon glyphicon-calendar"></i>
+															History
+														</a>
+														<a type="button" data-toggle="button" class="btn btn-xs btn-default">
+															<i class="glyphicon glyphicon-tag"></i>
+															Metadata
+														</a>
+														<a type="button" data-toggle="button" class="btn btn-xs btn-default">
+															<i class="glyphicon glyphicon-list-alt"></i>
+															Table View
+														</a>
+													</div>
+												</div>
 												<br>
 												<label for="AttributeRow">Attributes</label>
 												<div class="row" id="AttributeRow">
@@ -141,13 +165,6 @@
 															comentarios
 														</li>
 													</ul>
-												</div>
-												<br>
-												<div class="row">
-													<button type="button" data-toggle="button" class="btn btn-xs btn-default col-md-offset-8">
-														<i class="glyphicon glyphicon-list-alt"></i>
-														Table View
-													</button>
 												</div>
 											</div>
 											<div class="tab-pane" id="styleTab">
@@ -212,9 +229,6 @@
 													Edit SLD
 												</button>
 											</div>
-											<div class="tab-pane" id="dbTab">
-
-											</div>
 										</div>
 										<hr>
 										<button id="RemoveButton" class="btn btn-sm btn-danger btn-block">
@@ -222,15 +236,129 @@
 											Remove Layer
 										</button>
 										<br>
-													</div>
-												</div>
-											</div>
+									</div>
+								</div>
+							</div>
 							<a class="panel-heading layer-heading" href="#addLayerWindow" data-toggle="modal">
 								<i class="glyphicon glyphicon-plus-sign"></i>
 								Add Layer
 							</a>
 						</div>
 					</div>
+				</div>
+				<div class="panel">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#diffPanel">
+						<span>Diffs</span>
+					</a>
+					<div id="diffPanel" class="panel-collapse collapse">Diffs go here.</div>
+				</div>
+				<!--  <div class="panel">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#panel3">
+						<span>StoryBoard</span>
+					</a>
+					<div id="panel3" class="panel-collapse collapse">StoryBoxes go here.</div>
+				</div>-->
+				<div class="panel">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#panel4">
+						<span>Syncronization</span>
+					</a>
+					
+					<div class="panel-collapse collapse" id="panel4">
+					<br>
+						<div class="panel-body">
+							<a id="MergeButton" class="btn btn-sm btn-default btn-block" href="#mergeWindow" data-toggle="modal">
+								<i class="glyphicon glyphicon-resize-small"></i>
+								Local Merge
+							</a>
+						</div>
+						<br>
+						<div class="row" id="SyncRow">
+							<ul id="SyncList" class="list-group col-md-12">
+								<li id="sync0" class="list-group-item">
+									<div class="row col-md-12">
+										<div class="col-md-6">PDC</div>
+										<div class="col-md-6">
+											<div class="btn-group">
+												<button id="PushButton" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-arrow-up"></i>
+												</button>
+												<button id="PullButton" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-arrow-down"></i>
+												</button>
+												<button id="SyncButton" data-toggle="button" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-sort"></i>
+												</button>
+											</div>
+											<button id="EditButton" class="btn btn-xs btn-default">
+												<i class="glyphicon glyphicon-edit"></i>
+											</button>
+											<button id="CloseButton" class="btn btn-xs btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"></i>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li id="sync1" class="list-group-item">
+									<div class="row">
+										<div class="col-md-6">osm/master : PDC/master</div>
+										<div class="col-md-6">
+											<div class="btn-group">
+												<button id="PushButton" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-arrow-up"></i>
+												</button>
+												<button id="PullButton" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-arrow-down"></i>
+												</button>
+												<button id="SyncButton" data-toggle="button" class="btn btn-xs btn-default">
+													<i class="glyphicon glyphicon-sort"></i>
+												</button>
+											</div>
+											<button id="EditButton" class="btn btn-xs btn-default">
+												<i class="glyphicon glyphicon-edit"></i>
+											</button>
+											<button id="CloseButton" class="btn btn-xs btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"></i>
+											</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<br>
+						<div class="row col-md-12">
+							<a id="AddSyncButton" class="btn btn-xs btn-default col-md-offset-1" href="#addSyncWindow" data-toggle="modal">
+								<i class="glyphicon glyphicon-plus-sign"></i>
+								Add Sync
+							</a>
+							<a id="ConfigButton" class="btn btn-xs btn-default pull-right" href="#configWindow" data-toggle="modal">
+								<i class="glyphicon glyphicon-list"></i>
+								Config
+							</a>
+						</div>
+						<br>
+					</div>
+				</div>
+				<div class="panel">
+					<a class="panel-heading" data-toggle="collapse" data-parent="#pulldown-content" href="#historyPanel">
+						<span>History</span>
+					</a>
+					
+					<div id="historyPanel" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul id="historyList" class="list-group">
+							<li id="commit0" class="list-group-item">10/3/2013 12:28 PM kishmael  (0000)</li>
+							<li id="commi1" class="list-group-item">10/2/2013 2:28 PM kishmael    (0000)</li>
+							<li id="commit2" class="list-group-item">10/1/2013 3:28 PM kishmael   (0000)</li>
+						</ul>
+					<hr>
+					
+					<button id="diffButton" class="btn btn-sm btn-default btn-block">
+											<i class="glyphicon glyphicon-adjust"></i>
+											Diff
+										</button>
+										<br>
+										</div>
+										</div>
 				</div>
 				<!-- <div class="panel">
 					<a class="panel-heading" data-toggle="collapse" href="#panel3">
@@ -374,6 +502,188 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-primary" onClick="addBaseLayer()">Add</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<div id="mergeWindow" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						<h4 class="modal-title">Merge</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<div class="col-md-4">
+									<select class="form-control">
+										<option>tegu_op_repo</option>
+										<option>osm_repo</option>
+									</select>
+								</div>
+								<div class="col-md-3">
+									<select class="form-control">
+										<option>master</option>
+										<option>branch1</option>
+									</select>
+								</div>
+								<div class="col-md-2">
+									<p class="form-control-static text-center">into</p>
+								</div>
+								<div class="col-md-3">
+									<select class="form-control">
+										<option>master</option>
+										<option>branch1</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary">Merge</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<div id="addSyncWindow" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						<h4 class="modal-title">Add Sync</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Repo: </label>
+								</div>
+								<div class="col-md-5">
+									<select class="form-control">
+										<option>tegu_op_repo</option>
+										<option>osm_repo</option>
+									</select>
+								</div>
+								<div class="col-md-5">
+									<select class="form-control">
+										<option>master</option>
+										<option>branch1</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Remote: </label>
+								</div>
+								<div class="col-md-5">
+									<select class="form-control">
+										<option>PDC</option>
+										<option>origin</option>
+									</select>
+								</div>
+								<div class="col-md-5">
+									<select class="form-control">
+										<option>master</option>
+										<option>branch1</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Add</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<div id="configWindow" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						<h4 class="modal-title">Config</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Repo: </label>
+								</div>
+								<div class="col-md-10">
+									<select class="form-control">
+										<option>tegu_op_repo</option>
+										<option>osm_repo</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Remote: </label>
+								</div>
+								<div class="col-md-5">
+									<select class="form-control">
+										<option>PDC</option>
+										<option>origin</option>
+										<option>*New Remote</option>
+									</select>
+								</div>
+								<div class="col-md-5">
+									<button type="button" class="btn btn-default">Add/Remove</button>
+									<button type="button" class="btn btn-default">Save</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Name: </label>
+								</div>
+								<div class="col-md-10">
+									<input id="remoteName" type="text" class="form-control" placeholder="Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>URL: </label>
+								</div>
+								<div class="col-md-10">
+									<input id="remoteURL" type="text" class="form-control" placeholder="URL">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-2">
+									<label>Username: </label>
+								</div>
+								<div class="col-md-4">
+									<input id="remoteUsername" type="text" class="form-control" placeholder="Username">
+								</div>
+								<div class="col-md-2">
+									<label>Password: </label>
+								</div>
+								<div class="col-md-4">
+									<input id="remotePassword" type="password" class="form-control" placeholder="Password">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->

@@ -16,6 +16,8 @@ html, body {
 	width: 320px;
 	z-index: 1000;
 	top: 0px;
+	max-height: 80%;
+	overflow: hidden;
 }
 
 #pulldown .panel {
@@ -130,6 +132,15 @@ hr {
 #layerPanel-group {
 	max-height: 420px;
 	overflow: auto;
+}
+
+#SyncList, #historyList {
+	margin-bottom: 0px;
+}
+
+#SyncList .list-group-item .row{
+	padding: 0px !important;
+	margin: 0px !important;
 }
 
 .rotate-45deg    {  
