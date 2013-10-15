@@ -20,6 +20,10 @@ html, body {
 	overflow: hidden;
 }
 
+#addLayerDialog {
+    width: 350px;
+}
+
 #pulldown .panel {
 	margin: 0;
 	border: 0;
@@ -69,6 +73,11 @@ html, body {
 }
 .modal-body {
 	background-color:#97B3CD;
+}
+
+#layerList .list-group-item {
+    background-color:#4977A3;
+    color: #ffffff;
 }
 
 .panel-group .panel-heading + .panel-collapse .panel-body{
